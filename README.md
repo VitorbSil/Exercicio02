@@ -11,10 +11,10 @@ Status: Developing 🛠️
 + date of admission
 + salary
 
-## Next, some of the featuers you'll find in this project
+## Next, some of the features you'll find in this project:
 + Filter any 'Funcionario' by id;
-+ Filter and ordem them by salary;
++ Filter and order them by salary;
 + Find a specific 'Funcionario', either by Id or name;
-+ Been able to add a 'Funcionario', while also validating their name, date of admisson and salary.
++ Being able to add a 'Funcionario', while also validating their name, date of admisson and salary.
 
 ## The only program language used for this project is **C#**
