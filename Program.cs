@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using Aula03Colecoes.Models;
 using Aula03Colecoes.Models.Enuns;
@@ -103,6 +104,9 @@ namespace Aula03Colecoes
         {
             Funcionario f = new Funcionario();
 
+            Console.WriteLine("Digite seu ID:");
+            f.Id = int.Parse(Console.ReadLine());
+
             Console.WriteLine("Digite seu nome:");
             f.Nome = Console.ReadLine();
 
@@ -111,6 +115,11 @@ namespace Aula03Colecoes
 
             Console.WriteLine("Digite a data de admissão:");
             f.DataAdmissao = DateTime.Parse(Console.ReadLine());
+
+            Console.WriteLine("Digite seu CPF");
+            f.Cpf = Console.ReadLine();
+
+
 
             if (string.IsNullOrEmpty(f.Nome))
             {
@@ -189,6 +198,30 @@ namespace Aula03Colecoes
         }
 
 
+        public static void ObterPorTipo()
+        {
+            int n1 = 0;
+            Console.WriteLine("Digite 1 para exibir os Aprendizes");
+            Console.WriteLine("Digite 2 para exibir os CLTs");
+            n1 = int.Parse(Console.ReadLine());
+
+            switch (n1)
+            {
+                case 1:
+                    lista = lista.FindAll(x => x.TipoFuncionario == TipoFuncionarioEnum.Aprendiz);
+                    ExibirLista();
+                    Console.ReadKey();
+                    break;
+
+                case 2:
+                    lista = lista.FindAll(x => x.TipoFuncionario == TipoFuncionarioEnum.Clt);
+                    ExibirLista();
+                    Console.ReadKey();
+                    break;
+            }
+        }
+
+
 
 
         public static void ExemplosListasColecoes()
@@ -208,6 +241,7 @@ namespace Aula03Colecoes
                     Console.WriteLine("6 - Buscar funcionário por nome");
                     Console.WriteLine("7 - Remover por Id < 4 e exibir lista por salário");
                     Console.WriteLine("8 - Contar funcionários e somar salários");
+                    Console.WriteLine("9 - Para exibir os funcionários por tipo");
                     Console.WriteLine("==================================================");
                     Console.WriteLine("-----Ou tecle qualquer outro número para sair-----");
                     Console.WriteLine("==================================================");
@@ -244,6 +278,9 @@ namespace Aula03Colecoes
                             break;
                         case 8:
                             ObterEstatisticas();
+                            break;
+                        case 9:
+                            ObterPorTipo();
                             break;
                         default:
                             Console.WriteLine("Saindo do sistema....");
